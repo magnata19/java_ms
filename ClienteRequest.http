@@ -1,5 +1,14 @@
 ### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=IntelliJ IDEA
+POST http://localhost:36497/clients
+Content-Type: application/json
 
+{
+  "nome": "John Doe",
+  "cpf": "1234567890",
+  "idade": 25
+}
+
+###
+###
+GET http://localhost:36497/clients?cpf=1234567890
 ###
