@@ -20,6 +20,7 @@ public class CloudGatewayApplication {
         return builder
                 .routes()
                 .route(r -> r.path("/clients/**").uri("lb://ms-clients")) // isso redireciona para o microservico ms-clients
+                .route(r -> r.path("/cards/**").uri("lb://ms-cards")) // isso redireciona para o microservico ms-cards
                 .build();
     }
 

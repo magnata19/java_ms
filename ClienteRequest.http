@@ -1,5 +1,5 @@
 ### GET request to example server
-POST http://localhost:36497/clients
+POST http://localhost:8080/clients
 Content-Type: application/json
 
 {
@@ -10,5 +10,9 @@ Content-Type: application/json
 
 ###
 ###
-GET http://localhost:36497/clients?cpf=1234567890
+GET http://localhost:8080/clients?cpf=1234567890
+###
+
+###
+GET http://localhost:8080/clients
 ###

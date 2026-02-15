@@ -2,17 +2,17 @@ package br.com.davidson.msclient.application;
 
 import br.com.davidson.msclient.application.representation.ClientCreateRequest;
 import br.com.davidson.msclient.domain.Client;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("clients")
+@Slf4j
 public class ClientResource {
 
     private final ClientService service;
@@ -22,7 +22,8 @@ public class ClientResource {
     }
 
     @GetMapping
-    public String status(){
+    public String status() {
+        log.info("Obtendo o status do microserviço de clientes");
         return "ok";
     }
 
