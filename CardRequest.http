@@ -1,0 +1,17 @@
+### GET request to example server
+POST localhost:42775/cards
+Content-Type: application/json
+
+{
+  "nome": "Itau Black",
+  "bandeira": "MASTERCARD",
+  "renda": 5000,
+  "limiteBasico": "5000"
+}
+
+###
+
+###
+GET localhost:42775/cards?renda=4000
+
+###
