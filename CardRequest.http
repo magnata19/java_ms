@@ -1,5 +1,5 @@
 ### GET request to example server
-POST localhost:42775/cards
+POST localhost:8080/cards
 Content-Type: application/json
 
 {
