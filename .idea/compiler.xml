@@ -10,13 +10,14 @@
         <module name="eureka_server" />
         <module name="cloud_gateway" />
       </profile>
-      <profile name="Annotation profile for ms_card" enabled="true">
+      <profile name="Annotation profile for ms_credit_evaluator" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
+        <module name="ms_credit_evaluator" />
         <module name="ms_card" />
         <module name="msclient" />
       </profile>
@@ -27,6 +28,7 @@
       <module name="cloud_gateway" options="-parameters" />
       <module name="eureka_server" options="-parameters" />
       <module name="ms_card" options="-parameters" />
+      <module name="ms_credit_evaluator" options="-parameters" />
       <module name="msclient" options="-parameters" />
     </option>
   </component>
