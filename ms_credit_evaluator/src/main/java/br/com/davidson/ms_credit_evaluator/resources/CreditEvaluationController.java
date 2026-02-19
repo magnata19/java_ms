@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("evaluation")
 public class CreditEvaluationController {
 
+    private final CreditEvaluationService creditEvaluationService;
+
+    public CreditEvaluationController(CreditEvaluationService creditEvaluationService) {
+        this.creditEvaluationService = creditEvaluationService;
+    }
+
     @GetMapping
     public String status(){
         return "ok do serviço de avaliação de crédito";
@@ -18,6 +24,7 @@ public class CreditEvaluationController {
 
     @GetMapping(value = "client-situation", params = "cpf")
     public ResponseEntity<ClientSituation> consultClientSituation(@RequestParam("cpf") String cpf){
-        return null;
+        ClientSituation clientSituation = creditEvaluationService.getClientSituation(cpf);
+        return ResponseEntity.ok(clientSituation);
     }
 }

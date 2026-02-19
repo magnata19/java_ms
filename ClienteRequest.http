@@ -4,13 +4,13 @@ Content-Type: application/json
 
 {
   "nome": "John Doe",
-  "cpf": "1234567890",
+  "cpf": "1234567899",
   "idade": 25
 }
 
 ###
 ###
-GET http://localhost:8080/clients?cpf=1234567890
+GET http://localhost:8080/clients?cpf=1234567899
 ###
 
 ###

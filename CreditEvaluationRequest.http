@@ -1,0 +1,4 @@
+### GET request to example server
+GET http://localhost:8080/evaluation/client-situation?cpf=1234567899
+
+###
