@@ -1,6 +1,9 @@
 package br.com.davidson.ms_credit_evaluator.resources;
 
+import br.com.davidson.ms_credit_evaluator.resources.exception.ClientDataNotFoundException;
+import br.com.davidson.ms_credit_evaluator.resources.exception.MicroserviceComunicationErrorException;
 import br.com.davidson.ms_credit_evaluator.resources.representation.ClientSituation;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +26,14 @@ public class CreditEvaluationController {
     }
 
     @GetMapping(value = "client-situation", params = "cpf")
-    public ResponseEntity<ClientSituation> consultClientSituation(@RequestParam("cpf") String cpf){
-        ClientSituation clientSituation = creditEvaluationService.getClientSituation(cpf);
-        return ResponseEntity.ok(clientSituation);
+    public ResponseEntity consultClientSituation(@RequestParam("cpf") String cpf) {
+        try {
+            ClientSituation clientSituation = creditEvaluationService.getClientSituation(cpf);
+            return ResponseEntity.ok(clientSituation);
+        } catch (ClientDataNotFoundException ex) {
+            return ResponseEntity.notFound().build();
+        } catch (MicroserviceComunicationErrorException ex ){
+            return ResponseEntity.status(HttpStatus.resolve(ex.getStatus())).body(ex.getMessage());
+        }
     }
 }
