@@ -3,9 +3,8 @@ package br.com.davidson.ms_credit_evaluator.resources.representation;
 import lombok.Data;
 
 @Data
+public class AvaliationData {
 
-public class ClientData {
-    private Long id;
-    private String nome;
-    private Integer idade;
+    private String cpf;
+    private Long renda;
 }

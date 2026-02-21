@@ -1,5 +1,6 @@
 package br.com.davidson.ms_credit_evaluator.infra.clients;
 
+import br.com.davidson.ms_credit_evaluator.resources.representation.Card;
 import br.com.davidson.ms_credit_evaluator.resources.representation.CardClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -12,4 +13,7 @@ import java.util.List;
 public interface CardResourceFeign {
     @GetMapping(params = "cpf")
     ResponseEntity<List<CardClient>> listCardByCpf(@RequestParam("cpf") String cpf);
+
+    @GetMapping(params = "renda")
+    public ResponseEntity<List<Card>> getCardPorRenda(@RequestParam("renda") Long renda);
 }

@@ -2,10 +2,12 @@ package br.com.davidson.ms_credit_evaluator.resources.representation;
 
 import lombok.Data;
 
-@Data
+import java.math.BigDecimal;
 
-public class ClientData {
+@Data
+public class Card {
     private Long id;
     private String nome;
-    private Integer idade;
+    private String bandeira;
+    private BigDecimal limiteBasico;
 }

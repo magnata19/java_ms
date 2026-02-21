@@ -2,3 +2,14 @@
 GET http://localhost:8080/evaluation/client-situation?cpf=1234567899
 
 ###
+
+###
+POST localhost:8080/evaluation
+Content-Type: application/json
+
+{
+  "cpf": "1234567899",
+  "renda": 5000
+}
+
+###

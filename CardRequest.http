@@ -1,4 +1,4 @@
-### GET request to example server
+###
 POST localhost:8080/cards
 Content-Type: application/json
 
@@ -8,7 +8,30 @@ Content-Type: application/json
   "renda": 5000,
   "limiteBasico": "5000"
 }
+###
 
+###
+POST localhost:8080/cards
+Content-Type: application/json
+
+{
+  "nome": "Nubank Gold",
+  "bandeira": "MASTERCARD",
+  "renda": 2500,
+  "limiteBasico": "3000"
+}
+###
+
+###
+POST localhost:8080/cards
+Content-Type: application/json
+
+{
+  "nome": "Bradesco Elo Grafite",
+  "bandeira": "ELO",
+  "renda": 4000,
+  "limiteBasico": "6000"
+}
 ###
 
 ###

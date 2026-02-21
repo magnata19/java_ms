@@ -23,7 +23,7 @@ public class CardResource {
         this.cardClientService = cardClientService;
     }
 
-    @GetMapping()
+    @GetMapping
     public String status(){
         return "Serviço de cartões funcionando.";
     }
