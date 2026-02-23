@@ -1,0 +1,12 @@
+###
+POST localhost:8080/evaluation/request-card
+Content-Type: application/json
+
+{
+  "idCard": 2,
+  "cpf": "1234567898",
+  "limitLiberated": 7500,
+  "address": "Rua da Felicidade, 123"
+}
+
+###

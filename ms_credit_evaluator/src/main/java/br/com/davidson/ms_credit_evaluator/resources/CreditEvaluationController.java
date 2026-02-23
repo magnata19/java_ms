@@ -2,9 +2,8 @@ package br.com.davidson.ms_credit_evaluator.resources;
 
 import br.com.davidson.ms_credit_evaluator.resources.exception.ClientDataNotFoundException;
 import br.com.davidson.ms_credit_evaluator.resources.exception.MicroserviceComunicationErrorException;
-import br.com.davidson.ms_credit_evaluator.resources.representation.AvaliationData;
-import br.com.davidson.ms_credit_evaluator.resources.representation.AvaliationResponseClient;
-import br.com.davidson.ms_credit_evaluator.resources.representation.ClientSituation;
+import br.com.davidson.ms_credit_evaluator.resources.exception.RequestCardErrorException;
+import br.com.davidson.ms_credit_evaluator.resources.representation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,6 +44,16 @@ public class CreditEvaluationController {
             return ResponseEntity.notFound().build();
         } catch (MicroserviceComunicationErrorException ex ){
             return ResponseEntity.status(HttpStatus.resolve(ex.getStatus())).body(ex.getMessage());
+        }
+    }
+
+    @PostMapping("request-card")
+    public ResponseEntity<?> requestCard(@RequestBody RequestIssueCardData data){
+        try {
+            RequestProtocolCard requestProtocolCard = creditEvaluationService.requestIssueCard(data);
+            return ResponseEntity.ok(requestProtocolCard);
+        } catch (RequestCardErrorException ex){
+            return ResponseEntity.internalServerError().body(ex.getMessage());
         }
     }
 }
