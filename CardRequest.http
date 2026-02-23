@@ -38,3 +38,7 @@ Content-Type: application/json
 GET localhost:8080/cards?renda=2500
 
 ###
+
+###
+GET localhost:8080/cards?cpf=1234567898
+###
