@@ -21,6 +21,17 @@ services:
         - rabbitmq_data:/var/lib/rabbitmq
         - rabbitmq_logs:/var/log/rabbitmq
 
+  keyclock:
+    image: quay.io/keycloak/keycloak:26.5.4
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    ports:
+      - "8081:8080"
+    restart: always
+    command:
+      - start-dev
+
 volumes:
   rabbitmq_data:
   rabbitmq_logs:
