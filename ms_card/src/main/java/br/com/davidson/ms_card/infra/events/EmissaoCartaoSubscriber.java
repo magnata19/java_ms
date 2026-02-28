@@ -8,6 +8,7 @@ import br.com.davidson.ms_card.infra.repository.CardRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
+@Slf4j
 public class EmissaoCartaoSubscriber {
 
     private final CardRepository cardRepository;
@@ -39,7 +41,7 @@ public class EmissaoCartaoSubscriber {
             cardClient.setLimite(requestIssueCardData.getLimitLiberated());
             cardClientRepository.save(cardClient);
         } catch (Exception ex){
-            ex.printStackTrace();
+            log.error("Erro ao receber solicitação de emissão de cartão: {}", ex.getMessage());
         }
     }
 }

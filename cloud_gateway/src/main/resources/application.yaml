@@ -23,4 +23,4 @@ eureka:
     fetch-registry: true #Faz com que o gateway busque os serviços registrados no Eureka
     register-with-eureka: true
     service-url:
-        defaultZone: http://localhost:8761/eureka/
+        defaultZone: http://admin:admin@localhost:8761/eureka/

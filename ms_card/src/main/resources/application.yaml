@@ -2,10 +2,10 @@ spring:
   application:
     name: ms-cards
   rabbitmq:
-    host: localhost
+    host: rabbitmq
     port: 5672
-    username: root
-    password: root
+    username: guest
+    password: guest
 
 server:
   port: 0
@@ -13,7 +13,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://admin:admin@eureka-server:8761/eureka/
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
